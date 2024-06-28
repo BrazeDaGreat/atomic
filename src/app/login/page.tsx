@@ -4,8 +4,16 @@ import { useTheme } from "@/hooks/useTheme";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function Login() {
+export default async function Login() {
   const { getTheme, getGlobal } = useTheme();
+
+  useEffect(() => {
+    async function test() {
+      let data = await fetch("http://localhost:3000/api/auth");
+      console.log(await data.json());
+    }
+    test();
+  }, []);
 
   return (
     <main
@@ -27,19 +35,36 @@ export default function Login() {
           stay productive and organized. <br />
           Seamlessly login with your Discord account.
         </p>
-        <button
-          className={[
-            "flex self-center items-center justify-center bg-[#5865F2] px-4 py-2 rounded-md hover:bg-[#525ba7] transition-all duration-75",
-            "text-sm font-semibold",
-          ].join(" ")}
-        >
-          <DiscordSVG />
-          <span>Connect with Discord</span>
-        </button>
+        {true ? <LoginWithDiscord /> : <LoggedIn />}
       </div>
     </main>
   );
 }
+
+const LoggedIn = () => (
+  <button
+    className={[
+      "flex self-center items-center justify-center bg-[#525ba7] px-4 py-2 rounded-md",
+      "text-sm font-semibold",
+    ].join(" ")}
+  >
+    <DiscordSVG />
+    <span>Connected with Discord</span>
+  </button>
+);
+
+const LoginWithDiscord = () => (
+  <button
+    onClick={() => true}
+    className={[
+      "flex self-center items-center justify-center bg-[#5865F2] px-4 py-2 rounded-md hover:bg-[#525ba7] transition-all duration-75",
+      "text-sm font-semibold",
+    ].join(" ")}
+  >
+    <DiscordSVG />
+    <span>Connect with Discord</span>
+  </button>
+);
 
 const DiscordSVG = () => (
   <svg

@@ -1,3 +1,5 @@
+"use client";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -5,11 +7,6 @@ import "./globals.css";
 import { ThemeProvider } from "@/hooks/useTheme";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Atomic",
-  description: "All-in-one time management suite.",
-};
 
 export default function RootLayout({
   children,
