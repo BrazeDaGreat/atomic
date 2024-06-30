@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
+* {
+  box-sizing: border-box;
+}
+
+/* html,
 main {
-  --s: 96px;
-  /* --c1: rgba(0, 0, 0, 0.1); */
+  --s: 24px;
   --c1: rgba(0, 0, 0, 0.1);
-  /* --c2: rgba(0, 0, 0, 0.2); */
   --c2: rgba(0, 0, 0, 0);
 
   --_g: #0000 8%, var(--c1) 0 17%, #0000 0 58%;
@@ -25,7 +27,7 @@ main {
     ),
     var(--c2);
   background-size: var(--s) var(--s);
-}
+} */
 
 /** Animations */
 .animate-zoom-in {
@@ -46,4 +48,11 @@ main {
     scale: 1;
     opacity: 1;
   }
+}
+
+.place-items-center {
+  place-items: center;
+}
+.text-last-center {
+  text-align-last: center;
 }

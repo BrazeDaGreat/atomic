@@ -1,44 +1,69 @@
 "use client";
 
 import { useTheme } from "@/hooks/useTheme";
+import NavBar from "@/interface/NavBar";
+import Screen from "@/interface/Screen";
+import Window from "@/interface/Window";
+import WindowGrid from "@/interface/WindowGrid";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default async function Login() {
   const { getTheme, getGlobal } = useTheme();
 
-  useEffect(() => {
-    async function test() {
-      let data = await fetch("http://localhost:3000/api/auth");
-      console.log(await data.json());
-    }
-    test();
-  }, []);
+  // useEffect(() => {
+  //   async function test() {
+  //     let data = await fetch("http://localhost:3000/api/auth");
+  //     console.log(await data.json());
+  //   }
+  //   test();
+  // }, []);
 
   return (
-    <main
-      className={[
-        getTheme("bg"),
-        getTheme("text"),
-        "min-h-[100vh] min-w-[100vw] overflow-hidden place-items-center grid",
-      ].join(" ")}
-    >
-      <div
-        className={[
-          getTheme("container"),
-          "px-6 py-4 rounded-md flex flex-col gap-4 text-center max-w-[480px] bg-white/40 animate-zoom-in",
-        ].join(" ")}
-      >
-        <h1 className="text-2xl font-bold">Welcome to Atomic</h1>
-        <p className="text-sm">
-          Atomic is your ultimate time tracking companion, designed to help you
-          stay productive and organized. <br />
-          Seamlessly login with your Discord account.
-        </p>
-        {true ? <LoginWithDiscord /> : <LoggedIn />}
-      </div>
-    </main>
+    <Screen getTheme={getTheme}>
+      <NavBar getTheme={getTheme} />
+      <WindowGrid>
+        <Window title="Welcome to Atomic" className="max-w-[320px]">
+          <p className="text-justify text-last-center">
+            Welcome to Atomic. Your all-in-one productivity solution. Track your
+            time, manage your streaks, and stay organized all from within
+            Atomic.
+          </p>
+        </Window>
+        <Window title="Login with Discord" className="max-w-[320px]">
+          <p className="text-justify text-last-center">
+            Login with your Discord account to easily get started with Atomic.
+          </p>
+          <LoginWithDiscord />
+        </Window>
+      </WindowGrid>
+    </Screen>
   );
+
+  // return (
+  //   <main
+  //     className={[
+  //       getTheme("bg"),
+  //       getTheme("text"),
+  //       "min-h-[100vh] min-w-[100vw] overflow-hidden place-items-center grid",
+  //     ].join(" ")}
+  //   >
+  //     <div
+  //       className={[
+  //         getTheme("container"),
+  //         "px-6 py-4 rounded-md flex flex-col gap-4 text-center max-w-[480px] bg-white/40 animate-zoom-in",
+  //       ].join(" ")}
+  //     >
+  //       <h1 className="text-2xl font-bold">Welcome to Atomic</h1>
+  //       <p className="text-sm">
+  //         Atomic is your ultimate time tracking companion, designed to help you
+  //         stay productive and organized. <br />
+  //         Seamlessly login with your Discord account.
+  //       </p>
+  //       {true ? <LoginWithDiscord /> : <LoggedIn />}
+  //     </div>
+  //   </main>
+  // );
 }
 
 const LoggedIn = () => (
