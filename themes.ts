@@ -18,9 +18,10 @@ const themes: Themes = {
     text: "text-slate-900",
   },
   green: {
-    bg: "bg-green-600",
-    text: "text-white",
+    bg: "bg-green-800",
+    text: "text-green-950",
     container: "",
+    iconButton: "hover:text-white hover:bg-green-700",
   },
 };
 

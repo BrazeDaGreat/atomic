@@ -26,7 +26,7 @@ export default async function Login() {
       <div
         className={[
           getTheme("container"),
-          "px-6 py-4 rounded-md flex flex-col gap-4 text-center max-w-[480px] bg-white/15",
+          "px-6 py-4 rounded-md flex flex-col gap-4 text-center max-w-[480px] bg-white/40 animate-zoom-in",
         ].join(" ")}
       >
         <h1 className="text-2xl font-bold">Welcome to Atomic</h1>
@@ -44,7 +44,7 @@ export default async function Login() {
 const LoggedIn = () => (
   <button
     className={[
-      "flex self-center items-center justify-center bg-[#525ba7] px-4 py-2 rounded-md",
+      "flex self-center items-center text-white justify-center bg-[#525ba7] px-4 py-2 rounded-md",
       "text-sm font-semibold",
     ].join(" ")}
   >
@@ -57,7 +57,7 @@ const LoginWithDiscord = () => (
   <button
     onClick={() => true}
     className={[
-      "flex self-center items-center justify-center bg-[#5865F2] px-4 py-2 rounded-md hover:bg-[#525ba7] transition-all duration-75",
+      "flex self-center items-center justify-center text-white bg-[#5865F2] px-4 py-2 rounded-md hover:bg-[#525ba7] transition-all duration-75",
       "text-sm font-semibold",
     ].join(" ")}
   >
